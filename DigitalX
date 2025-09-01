@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DigitalX - Cutting Edge Digital Marketing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      padding-top: 56px;
+      background: #f8f9fa;
+      color: #212529;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
+      cursor: default;
+    }
+    body.bg-dark {
+      background: #121212;
+      color: #e0e0e0;
+    }
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(90deg, #0d6efd, #6610f2);
+      box-shadow: 0 4px 15px rgba(102, 16, 242, 0.5);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      transition: background 0.3s ease;
+    }
+    body.bg-dark .navbar {
+      background: linear-gradient(90deg, #3a3a3a, #1a1a1a);
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.8);
+    }
+    .navbar-brand {
+      font-weight: 800;
+      font-size: 1.8rem;
+      color: #fff !important;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+    .navbar-nav {
+      flex-wrap: nowrap !important;
+      white-space: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-link {
+      color: rgba(255, 255, 255, 0.87) !important;
+      font-weight: 600;
+      position: relative;
+      margin-right: 1.5rem;
+      transition: color 0.3s;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+    .nav-link:last-child {
+      margin-right: 0;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+      color: #ffd43b !important;
+    }
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 20%;
+      width: 60%;
+      height: 3px;
+      background: #ffd43b;
+      border-radius: 2px;
+      box-shadow: 0 0 6px #ffd43b;
+    }
+    #themeToggle {
+      font-size: 1.35rem;
+      background: transparent;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+    #themeToggle:hover {
+      transform: rotate(30deg);
+      color: #ffd43b;
+    }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(13, 110, 253, 0.85), rgba(102, 16, 242, 0.85)),
+        url('https://source.unsplash.com/1600x900/?digital,marketing') no-repeat center/cover;
+      color: #fff;
+      padding: 160px 20px 140px;
+      text-align: center;
+      box-shadow: inset 0 0 120px rgba(13, 110, 253, 0.9);
+    }
+    .hero h1 {
+      font-weight: 900;
+      font-size: 3.8rem;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+    }
+    .hero p.lead {
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin-bottom: 2.5rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6);
+    }
+    .hero .btn {
+      font-weight: 700;
+      padding: 0.85rem 3rem;
+      font-size: 1.3rem;
+      border-radius: 60px;
+      margin: 0 0.6rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 7px 20px rgba(255, 193, 7, 0.85);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .hero .btn-warning {
+      background-color: #ffd43b;
+      color: #212529;
+    }
+    .hero .btn-warning:hover {
+      box-shadow: 0 12px 32px rgba(255, 193, 7, 1);
+      transform: translateY(-6px);
+    }
+    .hero .btn-outline-light {
+      border: 2px solid white;
+      color: white;
+      background: transparent;
+    }
+    .hero .btn-outline-light:hover {
+      color: #6610f2;
+      background: white;
+    }
+    /* Section Headings */
+    section h2 {
+      font-weight: 800;
+      font-size: 3rem;
+      margin-bottom: 1.6rem;
+      display: inline-block;
+      padding-bottom: 0.4rem;
+      color: #6610f2;
+      letter-spacing: 0.05em;
+      text-shadow: 1px 1px 6px rgba(102, 16, 242, 0.5);
+      position: relative;
+    }
+    body.bg-dark section h2 {
+      color: #a5a5ff;
+      text-shadow: 1px 1px 8px #a5a5ffcc;
+    }
+    section h2::after {
+      content: '';
+      position: absolute;
+      width: 55%;
+      height: 5px;
+      background: #ffd43b;
+      bottom: 0;
+      left: 22.5%;
+      border-radius: 3px;
+      box-shadow: 0 0 10px #ffd43b;
+    }
+    /* Sections styling */
+    .section-container {
+      padding: 80px 20px;
+    }
+    .section-light {
+      background-color: #eef2f6;
+      color: #212529;
+    }
+    body.bg-dark .section-light {
+      background-color: #1c1f29;
+      color: #ddd;
+    }
+    .section-dark {
+      background-color: #282952;
+      color: #cccdff;
+    }
+    body.bg-dark .section-dark {
+      background-color: #282952;
+      color: #cccdff;
+    }
+    /* Cards */
+    .card-custom {
+      background: white;
+      border-radius: 20px;
+      padding: 1.8rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      transition: transform 0.45s ease, box-shadow 0.45s ease;
+      cursor: default;
+    }
+    body.bg-dark .card-custom {
+      background: #1e1e2f;
+      box-shadow: 0 10px 30px rgba(165, 165, 255, 0.15);
+    }
+    .card-custom:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 15px 40px rgba(255, 212, 59, 0.8);
+    }
+    .card-title {
+      color: #6610f2;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      text-shadow: 1px 1px 2px rgba(102, 16, 242, 0.4);
+    }
+    body.bg-dark .card-title {
+      color: #a5a5ff;
+    }
+    /* Buttons */
+    .btn-primary-custom {
+      background-color: #6610f2;
+      color: white;
+      border-radius: 50px;
+      font-weight: 700;
+      padding: 0.6rem 1.5rem;
+      border: none;
+      box-shadow: 0 5px 15px rgba(102, 16, 242, 0.7);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-primary-custom:hover {
+      background-color: #4b0897;
+      box-shadow: 0 8px 22px rgba(255, 212, 59, 0.9);
+    }
+    .btn-outline-primary-custom {
+      border: 2px solid #6610f2;
+      color: #6610f2;
+      border-radius: 50px;
+      font-weight: 700;
+      padding: 0.55rem 1.4rem;
+      background: transparent;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    .btn-outline-primary-custom:hover {
+      background-color: #6610f2;
+      color: white;
+      box-shadow: 0 8px 22px rgba(255, 212, 59, 0.9);
+    }
+    /* About section */
+    #about p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    body.bg-dark #about p {
+      color: #ccc;
+    }
+    /* Cards flexboxes adjustments */
+    .row.g-4 > div {
+      display: flex;
+    }
+    /* Testimonials */
+    #testimonials {
+      background: linear-gradient(135deg, #e0e0ff, #fafaff);
+      text-align: center;
+      border-radius: 0 0 50px 50px;
+      box-shadow: inset 0 -30px 40px -20px rgba(102, 16, 242, 0.15);
+      padding: 90px 20px;
+      transition: background-color 0.3s, color 0.3s;
+      color: #333;
+    }
+    body.bg-dark #testimonials {
+      background: linear-gradient(135deg, #2f2f4f, #1b1b3c);
+      color: #e0e0ff;
+    }
+    .testimonial {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: flex-start;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 2rem auto;
+      font-style: italic;
+      font-size: 1.15rem;
+      gap: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.bg-dark .testimonial {
+      background: rgba(46, 46, 69, 0.9);
+      box-shadow: 0 10px 40px rgba(165, 165, 255, 0.15);
+    }
+    .testimonial img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #6610f2;
+      flex-shrink: 0;
+    }
+    .testimonial-caption {
+      max-width: 750px;
+    }
+    .testimonial-caption footer {
+      font-weight: 700;
+      color: #6610f2;
+      margin-top: 0.8rem;
+      font-size: 1.15rem;
+    }
+    body.bg-dark .testimonial-caption footer {
+      color: #a5a5ff;
+    }
+    .btn-contact {
+      background-color: #6610f2;
+      color: white;
+      font-weight: 700;
+      padding: 0.7rem 2.6rem;
+      font-size: 1.1rem;
+      border-radius: 60px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 28px rgba(102, 16, 242, 0.85);
+      transition: background-color 0.35s, box-shadow 0.35s;
+      user-select: none;
+      margin-top: 2rem;
+    }
+    .btn-contact:hover {
+      background-color: #4b0897;
+      box-shadow: 0 12px 40px rgba(165, 111, 255, 0.95);
+    }
+    /* Contact */
+    #contact {
+      background: #0d6efd;
+      color: white;
+      padding: 90px 20px;
+      text-align: center;
+    }
+    body.bg-dark #contact {
+      background: #6610f2;
+    }
+    #contact h2 {
+      color: #ffd43b;
+      margin-bottom: 2.5rem;
+      font-weight: 900;
+      font-size: 3rem;
+      text-shadow: 1px 1px 10px #ffd43bcc;
+    }
+    .contact-info {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .contact-info a {
+      color: #ffd43b;
+      text-decoration: none;
+    }
+    #contact form {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    #contact .form-control {
+      border-radius: 14px;
+      border: none;
+      padding: 1.1rem 1.6rem;
+      font-size: 1.15rem;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+      transition: box-shadow 0.3s ease;
+    }
+    #contact .form-control:focus {
+      box-shadow: 0 0 15px #ffd43b;
+      border-color: #ffd43b;
+      outline: none;
+      background-color: #fff8d4;
+      color: #212529;
+    }
+    #contact textarea.form-control {
+      resize: vertical;
+      min-height: 130px;
+    }
+    #contact .btn-warning {
+      background: #ffd43b;
+      border: none;
+      font-weight: 700;
+      padding: 1rem 3.2rem;
+      font-size: 1.35rem;
+      border-radius: 60px;
+      box-shadow: 0 8px 20px rgba(255, 212, 59, 0.85);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+      color: #212529;
+      user-select: none;
+      cursor: pointer;
+    }
+    #contact .btn-warning:hover {
+      box-shadow: 0 14px 36px rgba(255, 212, 59, 1);
+      transform: translateY(-6px);
+      color: #212529;
+    }
+    #contact .social-links a.btn {
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin: 0 0.5rem;
+      padding: 0.75rem 1.75rem;
+      border: 2px solid white;
+      color: white;
+      background: transparent;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+    #contact .social-links a.btn:hover {
+      background-color: white;
+      color: #6610f2;
+      box-shadow: 0 8px 28px rgba(255, 212, 59, 0.9);
+    }
+    /* Call to Action */
+    #cta {
+      padding: 90px 20px;
+      background-color: #6610f2;
+      color: white;
+      text-align: center;
+    }
+    #cta h2 {
+      font-weight: 900;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    #cta p {
+      font-size: 1.25rem;
+      margin-bottom: 2.2rem;
+      font-weight: 600;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #cta .btn-warning {
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 1rem 3rem;
+      border-radius: 60px;
+      box-shadow: 0 7px 25px rgba(255, 212, 59, 0.85);
+      cursor: pointer;
+    }
+    #cta .btn-warning:hover {
+      box-shadow: 0 10px 33px rgba(255, 212, 59, 1);
+    }
+    /* Footer */
+    footer {
+      background: #212529;
+      color: #bbb;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 1.5rem 0;
+      box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+    body.bg-dark footer {
+      background: #121212;
+      color: #888;
+    }
+    /* Back to Top */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #6610f2;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 52px;
+      height: 52px;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(102, 16, 242, 0.7);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+      z-index: 1050;
+    }
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #backToTop:hover {
+      background: #a56fff;
+      box-shadow: 0 12px 30px rgba(165, 111, 255, 0.9);
+    }
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+      section h2 {
+        font-size: 2.2rem;
+      }
+      #features .feature-item h4 {
+        font-size: 1.45rem;
+      }
+      #contact h2 {
+        font-size: 2.8rem;
+      }
+      .service-card p {
+        font-size: 0.95rem;
+      }
+      #testimonials .testimonial {
+        flex-direction: column;
+        text-align: center;
+      }
+      #testimonials .testimonial img {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" role="navigation" aria-label="Primary navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">DigitalX</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center flex-nowrap">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+          <li class="nav-item"><a class="nav-link" href="#case-studies">Case Studies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-3">
+            <button id="themeToggle" class="btn btn-outline-light" aria-label="Toggle theme">🌙</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section id="home" class="hero reveal" aria-label="Main hero section">
+    <h1 class="display-4 fw-bold">Grow Your Business with Digital Marketing</h1>
+    <p class="lead mb-4">
+      We help brands boost visibility, leads, and sales online with tailored
+      strategies.
+    </p>
+    <ul class="list-unstyled fs-5 mb-5" style="max-width: 600px; margin: auto;">
+      <li>✔ Personalized marketing plans tailored to your business goals</li>
+      <li>✔ Omnichannel campaigns spanning social media, search, and email</li>
+      <li>✔ Proven ROI focused strategies with transparent reporting</li>
+    </ul>
+    <a href="#services" class="btn btn-warning btn-lg mt-3" aria-label="Explore Services">Explore Services</a>
+    <a href="#contact" class="btn btn-outline-light btn-lg mt-3" aria-label="Contact Us">Contact Us</a>
+  </section>
+
+  <section id="about" class="section-container section-light reveal text-center" aria-label="About DigitalX">
+    <div class="container">
+      <h2>About DigitalX</h2>
+      <p>
+        DigitalX is a full-service digital marketing agency committed to delivering innovative campaigns that drive real results. Our team of experts leverages SEO, PPC, content marketing, and analytics to craft strategies that connect brands with their audiences meaningfully and effectively.
+      </p>
+      <a href="#contact" class="btn btn-primary-custom btn-lg mt-4">Start Your Journey</a>
+    </div>
+  </section>
+
+  <section id="services" class="section-container reveal" aria-label="Our Services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-3 d-flex">
+          <article class="card-custom w-100" tabindex="0" role="region" aria-labelledby="seoTitle">
+            <h5 class="card-title" id="seoTitle">SEO Optimization</h5>
+            <p>Rank higher on Google with proven SEO strategies that boost organic traffic and generate conversions.</p>
+            <button class="btn btn-primary-custom" aria-label="Learn more about SEO Optimization">Learn More</button>
+            <button class="btn btn-outline-primary-custom mt-2" aria-label="Get a quote for SEO Optimization">Get Quote</button>
+          </article>
+        </div>
+        <div class="col-md-3 d-flex">
+          <article class="card-custom w-100" tabindex="0" role="region" aria-labelledby="socialTitle">
+            <h5 class="card-title" id="socialTitle">Social Media Marketing</h5>
+            <p>Engage your audience on platforms like Facebook, Instagram, LinkedIn &amp; more with captivating campaigns.</p>
+            <button class="btn btn-primary-custom" aria-label="Learn more about Social Media Marketing">Learn More</button>
+            <button class="btn btn-outline-primary-custom mt-2" aria-label="Get a quote for Social Media Marketing">Get Quote</button>
+          </article>
+        </div>
+        <div class="col-md-3 d-flex">
+          <article class="card-custom w-100" tabindex="0" role="region" aria-labelledby="adsTitle">
+            <h5 class="card-title" id="adsTitle">Google Ads</h5>
+            <p>Drive instant traffic and conversions with expert PPC campaigns customized for your industry.</p>
+            <button class="btn btn-primary-custom" aria-label="Learn more about Google Ads">Learn More</button>
+            <button class="btn btn-outline-primary-custom mt-2" aria-label="Get a quote for Google Ads">Get Quote</button>
+          </article>
+        </div>
+        <div class="col-md-3 d-flex">
+          <article class="card-custom w-100" tabindex="0" role="region" aria-labelledby="brandingTitle">
+            <h5 class="card-title" id="brandingTitle">Branding</h5>
+            <p>Create a strong, memorable brand identity that builds customer trust and recognition.</p>
+            <button class="btn btn-primary-custom" aria-label="Learn more about Branding services">Learn More</button>
+            <button class="btn btn-outline-primary-custom mt-2" aria-label="Get a quote for Branding services">Get Quote</button>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section-container section-light reveal" aria-label="Key Features">
+    <div class="container text-center">
+      <h2>Key Features</h2>
+      <div class="row g-5 justify-content-center">
+        <div class="col-md-4 d-flex">
+          <div class="feature-item w-100">
+            <h4>Comprehensive Analytics</h4>
+            <p>Track campaigns with detailed insights and reports to optimize ROI and growth.</p>
+            <button class="btn btn-primary-custom">View Analytics</button>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="feature-item w-100">
+            <h4>24/7 Support</h4>
+            <p>Our expert team is available around the clock to help you overcome challenges quickly.</p>
+            <button class="btn btn-primary-custom">Contact Support</button>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="feature-item w-100">
+            <h4>Custom Strategy</h4>
+            <p>Unique and tailored marketing strategies designed to fit your business goals and budget.</p>
+            <button class="btn btn-primary-custom">Request Strategy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news" class="section-container reveal" aria-label="Latest Insights and News">
+    <div class="container text-center">
+      <h2>Latest Insights & News</h2>
+      <div class="row g-4 justify-content-center mt-4">
+        <article class="col-md-4 card-custom" tabindex="0" role="article" aria-label="Marketing Trends 2025">
+          <h4>Top Digital Marketing Trends for 2025</h4>
+          <p>
+            Discover the latest trends reshaping the industry, including AI marketing, influencer hybrid campaigns, and privacy-focused targeting.
+          </p>
+          <a href="#" class="btn btn-outline-primary-custom mt-2" aria-label="Read more about 2025 trends">Read More</a>
+        </article>
+        <article class="col-md-4 card-custom" tabindex="0" role="article" aria-label="Effective SEO Techniques">
+          <h4>Effective SEO Techniques That Drive Traffic</h4>
+          <p>
+            Learn about advanced SEO best practices to improve your search rankings and get more qualified traffic without paid ads.
+          </p>
+          <a href="#" class="btn btn-outline-primary-custom mt-2" aria-label="Read more about SEO techniques">Read More</a>
+        </article>
+        <article class="col-md-4 card-custom" tabindex="0" role="article" aria-label="Maximizing ROI With PPC">
+          <h4>Maximizing Your ROI with PPC Campaigns</h4>
+          <p>
+            Insights on crafting PPC campaigns that balance cost and conversions for efficient ads spend and impactful growth.
+          </p>
+          <a href="#" class="btn btn-outline-primary-custom mt-2" aria-label="Read more about PPC ROI">Read More</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="case-studies" class="section-container section-light reveal" aria-label="Case Studies">
+    <div class="container text-center">
+      <h2>Case Studies</h2>
+      <p>See how we helped clients achieve 3x growth in just 6 months.</p>
+      <img
+        src="https://source.unsplash.com/800x400/?business,success"
+        alt="Successful business growth"
+        class="img-fluid rounded"
+        style="max-height: 430px;"
+      />
+      <div class="mt-3">
+        <a
+          href="https://digitalmarketinginstitute.com/resources/case-studies"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary-custom"
+          aria-label="View full case studies"
+          >View Full Case Study</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="reveal" aria-label="Client testimonials">
+    <div class="container">
+      <h2>What Clients Say</h2>
+
+      <article class="testimonial">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Photo of Alex Johnson" />
+        <div class="testimonial-caption">
+          <p>
+            "DigitalX completely transformed our online presence within just 3 months. Our sales skyrocketed by over 200%, and the team’s support and expertise were exceptional. Their tailored strategies helped us stand out in a crowded market and build genuine connections with our customers."
+          </p>
+          <footer>Alex Johnson, CEO of TechSolutions</footer>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Photo of Michael Stevens" />
+        <div class="testimonial-caption">
+          <p>
+            "We’ve worked with several agencies before, but none has delivered the consistent results DigitalX has. Their in-depth knowledge of SEO and paid ads helped us increase qualified traffic substantially. They are approachable, responsive, and genuinely invested in our success."
+          </p>
+          <footer>Michael Stevens, Marketing Director at BrightCo</footer>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Photo of Sarah Williams" />
+        <div class="testimonial-caption">
+          <p>
+            "DigitalX’s social media campaigns breathed new life into our brand’s community. Their creative content and precise targeting increased our engagement rate by 150% within the first quarter. The insights and analytics they provide helped us fine-tune messaging and maximize reach."
+          </p>
+          <footer>Sarah Williams, Brand Manager at GlowUp</footer>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Photo of Daniel Green" />
+        <div class="testimonial-caption">
+          <p>
+            "Thanks to DigitalX’s branding services, we now have a cohesive and compelling brand identity that resonates with our customers. Their approach was insightful and collaborative, making the entire process smooth and enjoyable."
+          </p>
+          <footer>Daniel Green, Founder of Craftify</footer>
+        </div>
+      </article>
+
+      <button class="btn-contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Get in touch with DigitalX">Get in Touch</button>
+    </div>
+  </section>
+
+  <section id="cta" class="section-container section-dark reveal" aria-label="Call to action">
+    <div class="container text-center">
+      <h2>Ready to Elevate Your Digital Presence?</h2>
+      <p>Contact DigitalX today to schedule your free consultation and unlock the full potential of your brand online.</p>
+      <a href="#contact" class="btn btn-warning btn-lg">Get Started Now</a>
+    </div>
+  </section>
+
+  <section id="contact" class="section-container reveal" aria-label="Contact form and social links" style="background:#0d6efd; color:white;">
+    <div class="container text-center">
+      <h2 class="text-warning mb-5">Get in Touch</h2>
+      <div class="contact-info mb-5">
+        <p>📞 Phone: <a href="tel:+1234567890" class="text-warning">+91 98682 79865</a></p>
+        <p>🏢 Address: 123 Digital Lane, Delhi, India</p>
+        <p>📧 Email: <a href="mailto:contact@digitalx.com" class="text-warning">contact@digitalxi.com</a></p>
+      </div>
+      <form class="row g-4" novalidate>
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Your Name" required aria-label="Your Name" />
+        </div>
+        <div class="col-md-6">
+          <input type="email" class="form-control" placeholder="Your Email" required aria-label="Your Email" />
+        </div>
+        <div class="col-12">
+          <textarea class="form-control" rows="4" placeholder="Message" required aria-label="Message"></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-warning btn-lg w-100" aria-label="Send Message">Send Message</button>
+        </div>
+      </form>
+      <div class="social-links mt-5">
+        <p>Or reach us on social media:</p>
+        <a href="#" class="btn btn-outline-light me-3" aria-label="Facebook">Facebook</a>
+        <a href="#" class="btn btn-outline-light me-3" aria-label="Twitter">Twitter</a>
+        <a href="#" class="btn btn-outline-light" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 DigitalX - All Rights Reserved
+  </footer>
+
+  <button id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('bg-dark');
+      document.body.classList.toggle('text-white');
+      themeToggle.textContent = themeToggle.textContent === '🌙' ? '☀️' : '🌙';
+    });
+
+    // Nav active link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let scrollPos = window.scrollY + 80;
+      sections.forEach(section => {
+        if (
+          scrollPos >= section.offsetTop &&
+          scrollPos < section.offsetTop + section.offsetHeight
+        ) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + section.id) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+
+      // Back to top button toggle
+      const backToTop = document.getElementById('backToTop');
+      if (window.scrollY > 350) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    // Back to top smooth scroll
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll reveal animation
+    function reveal() {
+      const reveals = document.querySelectorAll('.reveal');
+      const windowHeight = window.innerHeight;
+      reveals.forEach(el => {
+        const elementTop = el.getBoundingClientRect().top;
+        const revealPoint = 150;
+        if (elementTop < windowHeight - revealPoint) {
+          el.classList.add('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+  </script>
+</body>
+</html>
